@@ -1,0 +1,59 @@
+version: '3.6'
+services:
+  matias-zalazar:
+
+    image: matias-zalazar:${BUILD_ENV}
+    build:
+      context: .
+      target: ${BUILD_ENV}
+    depends_on:
+      - 'db'
+    networks:
+      - 'test_database'
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PASSWORD: docker
+      DATABASE_USER: docker
+      DATABASE: matias-zalazar
+      DATABASE_PORT: 5432
+    ports:
+      - 8080:8080
+
+  test:
+    image: matias-zalazar:${BUILD_ENV}
+    depends_on:
+      - 'db'
+    networks:
+      - 'test_database'
+    build:
+      context: .
+      target: ${BUILD_ENV}
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PASSWORD: docker
+      DATABASE_USER: docker
+      DATABASE: matias-zalazar
+      DATABASE_PORT: 5432
+    entrypoint:
+      - /bin/bash
+      - -c
+      - "mvn test"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  db:
+    image: postgres:latest
+    restart: always
+    networks:
+      - 'test_database'
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: matias-zalazar
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    expose:
+      - 5432
+
+networks:
+  test_database:

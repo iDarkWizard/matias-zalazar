@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "7ab5d07b-64a4-404c-93ee-883727cda92d",
+		"name": "matias-zalazar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST Conversation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"conversationName\": \"Grupo de whatsapp\",\r\n    \"contactList\": [],\r\n    \"messageList\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/conversations",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"conversations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Conversations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/conversations",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"conversations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Contact",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"contactName\": \"Matias Zalazar\",\r\n    \"coversationList\": [],\r\n    \"messageList\": [],\r\n    \"friendList\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/contacts",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Contacts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/contacts",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Contact to Conversation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/contacts/ad6a7fc1-aad7-4fa2-b051-eb29408065e0/add_to_conversation?conversationId=c165742b-a78b-49e7-8447-54aef0ef26ea",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"contacts",
+						"ad6a7fc1-aad7-4fa2-b051-eb29408065e0",
+						"add_to_conversation"
+					],
+					"query": [
+						{
+							"key": "conversationId",
+							"value": "c165742b-a78b-49e7-8447-54aef0ef26ea"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Message to Conversation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/contacts/ad6a7fc1-aad7-4fa2-b051-eb29408065e0/send_message?conversationId=c165742b-a78b-49e7-8447-54aef0ef26ea&content=Nuevo mensaje",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"contacts",
+						"ad6a7fc1-aad7-4fa2-b051-eb29408065e0",
+						"send_message"
+					],
+					"query": [
+						{
+							"key": "conversationId",
+							"value": "c165742b-a78b-49e7-8447-54aef0ef26ea"
+						},
+						{
+							"key": "content",
+							"value": "Nuevo mensaje"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
