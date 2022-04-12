@@ -3,14 +3,13 @@
 Latest version: 3.2
 
 ## ReadME Overview
-1. ### Installation
-2. ### Library overview
-3. ### Usage
-    1. Creating models
-    2. Mapping DTOs and DAOs
+1. ### [Installation](#installation)
+2. ### [Library overview](#library-overview)
+3. ### [Usage](#usage)
+    1. [Creating models](#creating-models)
+    2. [Mapping DTOs and DAOs](#mapping-dtos-and-daos)
     3. [Repositories](#repositories)
     4. [Controllers](#controllers)
-4. ### Finish
 
 - ## Installation
 
@@ -316,6 +315,7 @@ public class NewObjectDto extends BaseEntity {
 ```
 
 - ## Mapping DTOs and DAOs
+
 For mappings, we will use `mapstruct` extending the `EntityMapper` from the library.
 
 ```java
@@ -359,7 +359,7 @@ public interface NewObjectRepository extends BaseRepository<NewObject, UUID> {
 ```
 
 - ## Controllers
-<a name="controllers"></a>
+
 Now we have all the needs to create a REST controller extending `BaseController`.
     
 Inject the `repository` to the constructor, then pass it to the `super` constructor.  
