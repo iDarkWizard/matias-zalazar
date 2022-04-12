@@ -8,7 +8,7 @@ Latest version: 3.2
 3. ### Usage
     1. Creating models
     2. Mapping DTOs and DAOs
-    3. Repositories
+    3. [Repositories](#repositories)
     4. [Controllers](#controllers)
 4. ### Finish
 
